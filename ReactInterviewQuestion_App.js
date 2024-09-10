@@ -7,7 +7,7 @@ function App() {
     axios
       .get(`https://dummyjson.com/products`)
       .then((res) => {
-        console.log('Res:::',res);
+        console.log("Res:::", res);
         return setProducts(res.data.products);
       })
       .catch((err) => console.error(`Error fetching products: ${err}`));
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Product List</h1>
-      <table border="1" cellPadding="10" cellSpacing="1">
+      <table border="1" cellPadding="10" cellSpacing="0">
         <thead>
           <tr>
             <th>Product Title</th>
@@ -27,9 +27,15 @@ function App() {
         <tbody>
           {products.map((product) => (
             <tr key={product.id}>
-                <td>{product.title}</td>
-                <td>{product.description}</td>
-                <img src={product.images[0]} alt='dummy-img' width="90" />
+              <td>{product.title}</td>
+              <td>{product.description}</td>
+              <td>
+                <img
+                  src={product.images[0]}
+                  alt="dummy-image"
+                  width="100"
+                />
+              </td>
             </tr>
           ))}
         </tbody>
