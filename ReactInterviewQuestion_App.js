@@ -11,7 +11,7 @@ function App() {
         return setProducts(res.data.products);
       })
       .catch((err) => console.error(`Error fetching products: ${err}`));
-  });
+  },[]);
 
   return (
     <div className="App">
